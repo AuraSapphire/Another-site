@@ -1,0 +1,1 @@
+GitHub write-access test — written by ChatGPT on 2026-09-21. If you can see this file in the Another-site repo, write access is working.
