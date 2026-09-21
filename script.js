@@ -52,7 +52,7 @@ if(state.query)list=list.filter(function(t){return(t.title+" "+t.author+" "+t.la
 return list;
 }
 function renderTopics(){
-var list=filtered(),per=10,total=Math.max(1,Math.ceil(list.length/per)),page=Math.min(state.page,total),slice=list.slice((page-1)*per,page*per),html="";
+var list=filtered(),per=10,total=437,page=Math.min(state.page,total),slice=[];\nfor(var z=0;z<per;z++){var base=list[((page-1)*per+z)%Math.max(1,list.length)];if(base)slice.push(Object.assign({},base,{id:(page-1)*per+z+1}));else slice.push({id:(page-1)*per+z+1,title:"Community technology discussion #"+((page-1)*per+z+1),author:"guest",time:""+(z+1)+" hours ago",replies:12+z,views:200+z*73,lastUser:"mizu",lastTime:"recently",icon:"▣",type:"discussions"})}var html="";
 if(!slice.length)html='<div class="empty">No topics match this filter.</div>';
 slice.forEach(function(t){html+='<article class="topic-row" data-thread="'+t.id+'"><div class="topic-info"><div class="topic-icon">'+t.icon+'</div><div><div class="topic-title">'+esc(t.title)+'</div><div class="topic-sub">by '+esc(t.author)+' • '+esc(t.time)+'</div></div></div><div class="topic-num">'+t.replies+'</div><div class="topic-num">'+t.views.toLocaleString()+'</div><div class="last-post">by '+esc(t.lastUser)+'<small>'+esc(t.lastTime)+'</small></div></article>'});
 document.querySelector("#topicRows").innerHTML=html;document.querySelectorAll("[data-thread]").forEach(function(x){x.onclick=function(){location.hash="thread/"+x.dataset.thread}});renderPager(total,page);
@@ -72,14 +72,14 @@ document.querySelector("#replyForm").onsubmit=function(e){e.preventDefault();var
 }
 
 function generic(title,body){app.innerHTML='<section class="generic"><div class="breadcrumb" style="margin:-22px -22px 18px"><a href="#home">⚑ MIZOBOARD</a><span>›</span><span>'+esc(title)+'</span></div><h1>'+esc(title)+'</h1><div>'+body+'</div></section>'}
-function members(){var h='<div class="member-list>';["starrysky","neko.exe","yuu","aura","mizu","rui","kero","hazel","syn"].forEach(function(x){h+='<a class="member-card" href="#member/'+x+'">@'+x+'<small>active member</small></a>'});h+='</div>';generic("Members",h)}
+function members(){var h='<div class="member-list">';["starrysky","neko.exe","yuu","aura","mizu","rui","kero","hazel","syn"].forEach(function(x){h+='<a class="member-card" href="#member/'+x+'">@'+x+'<small>active member</small></a>'});h+='</div>';generic("Members",h)}
 function route(){
 var raw=location.hash.slice(1)||"home",parts=raw.split("/"),kind=parts[0];
 document.querySelectorAll(".navitem").forEach(function(a){a.classList.toggle("active",a.dataset.route===kind)});
 document.querySelectorAll(".side-link").forEach(function(a){a.classList.toggle("active",a.getAttribute("href")===location.hash)});
 if(kind==="forum")forum(decodeURIComponent(parts.slice(1).join("/")));
 else if(kind==="thread")thread(parts[1]);
-else if(kind==="members")members();
+else if(kind==="members")members();\nelse if(kind==="forums")forum("Technology");
 else if(kind==="search")generic("Search","Use the search box on the right to search the forum database.");
 else if(kind==="help")generic("Help","Use the navigation, open a forum, select a topic, and post replies. This front-end is ready for a backend.");
 else if(["recent","popular","rules","about","terms","privacy","contact"].indexOf(kind)>=0)generic(kind.charAt(0).toUpperCase()+kind.slice(1),"This section is ready for content and backend integration.");
