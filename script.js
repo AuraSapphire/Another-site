@@ -80,7 +80,8 @@ document.querySelectorAll(".navitem").forEach(function(a){a.classList.toggle("ac
 document.querySelectorAll(".side-link").forEach(function(a){a.classList.toggle("active",a.getAttribute("href")===location.hash)});
 if(kind==="forum")forum(decodeURIComponent(parts.slice(1).join("/")));
 else if(kind==="thread")thread(parts[1]);
-else if(kind==="members")members();\nelse if(kind==="forums")forum("Technology");
+else if(kind==="members")members();
+else if(kind==="forums")forum("Technology");
 else if(kind==="search")generic("Search","Use the search box on the right to search the forum database.");
 else if(kind==="help")generic("Help","Use the navigation, open a forum, select a topic, and post replies. This front-end is ready for a backend.");
 else if(["recent","popular","rules","about","terms","privacy","contact"].indexOf(kind)>=0)generic(kind.charAt(0).toUpperCase()+kind.slice(1),"This section is ready for content and backend integration.");
