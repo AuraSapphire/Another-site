@@ -1,105 +1,57 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#05080b">
-  <title>MIZOBOARD — Same people. Different stories.</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#05080b">
+<title>MIZOBOARD</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="crt"></div>
-  <div class="shell">
-    <header class="topbar">
-      <a class="brand" href="#" data-nav="home">
-        <div class="globe" aria-hidden="true">◎</div>
-        <div><strong>MIZOBOARD</strong><span>SAME PEOPLE. DIFFERENT STORIES.</span></div>
-      </a>
-      <nav class="topnav" aria-label="Primary">
-        <a class="navitem active" href="#home" data-nav="home">⌂ <span>HOME</span></a>
-        <a class="navitem" href="#forums" data-nav="forums">▣ <span>FORUMS</span></a>
-        <a class="navitem" href="#members" data-nav="members">♟ <span>MEMBERS</span></a>
-        <a class="navitem" href="#search" data-nav="search">⌕ <span>SEARCH</span></a>
-        <a class="navitem" href="#help" data-nav="help">? <span>HELP</span></a>
-      </nav>
-      <div class="datebox"><b>SEP 21 2026</b><span>MON 18:24</span></div>
-      <div class="motto">A QUIETER<br>PLACE ON THE<br>INTERNET. _</div>
-    </header>
+<div class="crt"></div>
+<div class="shell">
+<header class="topbar">
+  <a class="brand" href="#home"><div class="globe">◎</div><div><strong>MIZOBOARD</strong><span>SAME PEOPLE. DIFFERENT STORIES.</span></div></a>
+  <nav class="topnav">
+    <a class="navitem active" href="#home" data-route="home">⌂ <span>HOME</span></a>
+    <a class="navitem" href="#forums" data-route="forums">▣ <span>FORUMS</span></a>
+    <a class="navitem" href="#members" data-route="members">♟ <span>MEMBERS</span></a>
+    <a class="navitem" href="#search" data-route="search">⌕ <span>SEARCH</span></a>
+    <a class="navitem" href="#help" data-route="help">? <span>HELP</span></a>
+  </nav>
+  <div class="datebox"><b>SEP 21 2026</b><span>MON 19:02</span></div>
+  <div class="motto">A QUIETER<br>PLACE ON THE<br>INTERNET. _</div>
+</header>
 
-    <div class="layout">
-      <aside class="left">
-        <section class="panel navpanel">
-          <h3>NAVIGATION</h3>
-          <a class="side-link active" href="#home">⌂ <span>Home</span></a>
-          <a class="side-link" href="#forums">▣ <span>Forums</span></a>
-          <a class="side-link" href="#recent">▤ <span>Recent Posts</span></a>
-          <a class="side-link" href="#popular">⚙ <span>Popular Topics</span></a>
-          <a class="side-link" href="#members">♟ <span>Members</span></a>
-          <a class="side-link" href="#rules">♙ <span>Rules</span></a>
-          <a class="side-link" href="#about">⚙ <span>About Us</span></a>
-        </section>
+<div class="layout">
+<aside class="left">
+<section class="panel navpanel"><h3>NAVIGATION</h3>
+<a class="side-link" href="#home">⌂ <span>Home</span></a>
+<a class="side-link" href="#forums">▣ <span>Forums</span></a>
+<a class="side-link" href="#recent">▤ <span>Recent Posts</span></a>
+<a class="side-link" href="#popular">⚙ <span>Popular Topics</span></a>
+<a class="side-link" href="#members">♟ <span>Members</span></a>
+<a class="side-link" href="#rules">♙ <span>Rules</span></a>
+<a class="side-link" href="#about">⚙ <span>About Us</span></a></section>
+<section class="panel quote-art"><div class="anime-art">◌<br><small>NO SIGNAL / MEMORY</small></div><p>“SOME CONVERSATIONS<br>STAY WITH YOU FOREVER.”</p><i></i><i></i></section>
+<section class="panel player"><h3>NOW PLAYING</h3><div class="player-row"><div class="album">◒</div><div><b>departure</b><small>Nujabes</small></div></div><div class="progress"><span></span></div><div class="times"><span id="current">1:52</span><span>3:18</span></div><div class="controls"><button id="prev">|◀</button><button id="play">Ⅱ</button><button id="next">▶|</button></div></section>
+<section class="panel city-art"><div>▥ ▦ ▥</div><small>また、どこかで。</small><span>SEE YOU SOMEWHERE AGAIN.</span></section>
+</aside>
 
-        <section class="panel quote-art">
-          <div class="anime-art">◌<br><small>NO SIGNAL / MEMORY</small></div>
-          <p>“SOME CONVERSATIONS<br>STAY WITH YOU FOREVER.”</p>
-          <i></i><i></i>
-        </section>
+<main class="main" id="app"></main>
 
-        <section class="panel player">
-          <h3>NOW PLAYING</h3>
-          <div class="player-row">
-            <div class="album">◒</div>
-            <div><b>departure</b><small>Nujabes</small></div>
-          </div>
-          <div class="progress"><span></span></div>
-          <div class="times"><span id="current">1:24</span><span>3:18</span></div>
-          <div class="controls">
-            <button aria-label="previous">|◀</button><button id="play" aria-label="play">Ⅱ</button><button aria-label="next">▶|</button>
-          </div>
-        </section>
+<aside class="right">
+<section class="panel guest"><div class="portrait">◉<br>╱│╲<br>╲│╱</div><div><strong id="guestName">guest</strong><span id="guestState">offline</span><a href="#login" id="login">♙ login</a><a href="#register" id="register">✚ register</a></div></section>
+<section class="panel searchbox"><h3>SEARCH</h3><form id="globalSearch"><input id="globalSearchInput" placeholder="search..." autocomplete="off"><button>⌕</button></form></section>
+<section class="panel stats"><h3>SITE STATS</h3><p>▥ &nbsp; members: <b>12,430</b></p><p>&nbsp;&nbsp;&nbsp;&nbsp;topics: <b>67,191</b></p><p>&nbsp;&nbsp;&nbsp;&nbsp;posts: <b>398,220</b></p><p>newest: <a href="#member/starrysky">@starrysky</a></p></section>
+<section class="panel moon"><div>◐</div><p>“A KIND COMMUNITY<br>CAN CHANGE<br>SOMEONE’S DAY.”</p></section>
+<section class="panel random"><h3>RANDOM</h3><p id="randomText">good people<br>share great things.</p><button id="randomBtn">→</button></section>
+</aside>
+</div>
+<footer><div>◎ &nbsp; MIZOBOARD</div><nav><a href="#home">home</a> | <a href="#forums">forums</a> | <a href="#members">members</a> | <a href="#search">search</a> | <a href="#help">help</a> | <a href="#terms">terms</a> | <a href="#privacy">privacy</a> | <a href="#contact">contact</a></nav><div>© 2026 MIZOBOARD<br><small>made with ♡ for a better internet.</small></div><b class="barcode">▥▥▥▥▥▥</b></footer>
+</div>
 
-        <section class="panel city-art"><div>▥ ▦ ▥</div><small>また、どこかで。</small><span>SEE YOU SOMEWHERE AGAIN.</span></section>
-      </aside>
-
-      <main class="main" id="home">
-        <section class="hero">
-          <div class="hero-copy left-copy"><div>見知らぬ誰かと、<br>少しだけ近くに。</div><b>DIFFERENT PEOPLE.<br>SAME SKY.</b></div>
-          <div class="earth"><div class="atmo"></div><div class="lights"></div></div>
-          <div class="astronaut">◉<br>╱▔╲<br>│◌│<br>╲__╱</div>
-          <div class="hero-title"><strong>MIZOBOARD</strong><span>ANONYMOUS • GLOBAL • ALWAYS ONLINE</span></div>
-          <div class="hero-copy right-copy">POST<br>TALK<br>SHARE<br>BELONG<br>...</div>
-          <div class="stars">✦　 ·　　　✧　　·　　✦</div>
-        </section>
-
-        <section class="statusbar"><span>&gt; welcome to mizoboard -- a space for open minds.</span><b>[ <em id="online">142</em> online ] <i></i></b><small>“better conversations<br>for a brighter tomorrow.”</small></section>
-
-        <section class="forum panel" id="forums">
-          <div class="section-head"><h2>// FORUM CATEGORIES</h2><span>→›</span></div>
-          <div class="table-head"><span>FORUM</span><span>TOPICS</span><span>POSTS</span><span>LAST POST</span></div>
-          <div id="forumRows"></div>
-        </section>
-      </main>
-
-      <aside class="right">
-        <section class="panel guest">
-          <div class="portrait">◉<br>╱│╲<br>╲│╱</div>
-          <div><strong>guest</strong><span>offline</span><a href="#" id="login">♙ login</a><a href="#" id="register">✚ register</a></div>
-        </section>
-        <section class="panel searchbox" id="search">
-          <h3>SEARCH</h3><form id="searchForm"><input id="searchInput" placeholder="search..." autocomplete="off"><button>⌕</button></form>
-        </section>
-        <section class="panel stats">
-          <h3>SITE STATS</h3><p>▥ &nbsp; members: <b>12,430</b></p><p>&nbsp;&nbsp;&nbsp;&nbsp;topics: <b>67,191</b></p><p>&nbsp;&nbsp;&nbsp;&nbsp;posts: <b>398,220</b></p><p>newest: <a>@starrysky</a></p>
-        </section>
-        <section class="panel moon"><div>◐</div><p>“A KIND COMMUNITY<br>CAN CHANGE<br>SOMEONE’S DAY.”</p></section>
-        <section class="panel random"><h3>RANDOM</h3><p>good people<br>share great things.</p><button id="randomBtn">→</button></section>
-      </aside>
-    </div>
-
-    <footer><div>◎ &nbsp; MIZOBOARD</div><nav><a href="#home">home</a> | <a href="#forums">forums</a> | <a href="#members">members</a> | <a href="#search">search</a> | <a href="#help">help</a> | <a href="#terms">terms</a> | <a href="#privacy">privacy</a> | <a href="#contact">contact</a></nav><div>© 2026 MIZOBOARD<br><small>made with ♡ for a better internet.</small></div><b class="barcode">▥▥▥▥▥▥</b></footer>
-  </div>
-
-  <dialog id="auth"><div class="modal"><button class="close">×</button><h2 id="authTitle">LOGIN</h2><input placeholder="username"><input placeholder="password" type="password"><button class="primary">CONTINUE</button><small>Demo interface — authentication can be connected to a backend later.</small></div></dialog>
-  <script src="script.js"></script>
+<dialog id="modal"><div class="modal"><button class="close">×</button><div id="modalContent"></div></div></dialog>
+<script src="script.js"></script>
 </body>
 </html>
