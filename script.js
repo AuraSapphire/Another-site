@@ -52,7 +52,8 @@ if(state.query)list=list.filter(function(t){return(t.title+" "+t.author+" "+t.la
 return list;
 }
 function renderTopics(){
-var list=filtered(),per=10,total=437,page=Math.min(state.page,total),slice=[];\nfor(var z=0;z<per;z++){var base=list[((page-1)*per+z)%Math.max(1,list.length)];if(base)slice.push(Object.assign({},base,{id:(page-1)*per+z+1}));else slice.push({id:(page-1)*per+z+1,title:"Community technology discussion #"+((page-1)*per+z+1),author:"guest",time:""+(z+1)+" hours ago",replies:12+z,views:200+z*73,lastUser:"mizu",lastTime:"recently",icon:"▣",type:"discussions"})}var html="";
+var list=filtered(),per=10,total=437,page=Math.min(state.page,total),slice=[];
+for(var z=0;z<per;z++){var base=list[((page-1)*per+z)%Math.max(1,list.length)];if(base)slice.push(Object.assign({},base,{id:(page-1)*per+z+1}));else slice.push({id:(page-1)*per+z+1,title:"Community technology discussion #"+((page-1)*per+z+1),author:"guest",time:""+(z+1)+" hours ago",replies:12+z,views:200+z*73,lastUser:"mizu",lastTime:"recently",icon:"▣",type:"discussions"})}var html="";
 if(!slice.length)html='<div class="empty">No topics match this filter.</div>';
 slice.forEach(function(t){html+='<article class="topic-row" data-thread="'+t.id+'"><div class="topic-info"><div class="topic-icon">'+t.icon+'</div><div><div class="topic-title">'+esc(t.title)+'</div><div class="topic-sub">by '+esc(t.author)+' • '+esc(t.time)+'</div></div></div><div class="topic-num">'+t.replies+'</div><div class="topic-num">'+t.views.toLocaleString()+'</div><div class="last-post">by '+esc(t.lastUser)+'<small>'+esc(t.lastTime)+'</small></div></article>'});
 document.querySelector("#topicRows").innerHTML=html;document.querySelectorAll("[data-thread]").forEach(function(x){x.onclick=function(){location.hash="thread/"+x.dataset.thread}});renderPager(total,page);
